@@ -44,19 +44,17 @@
                 <div
                     class="col-12 col-md-6 d-flex justify-content-center align-items-center"
                 >
-                    <form class="w-100">
+                    <form id="loginForm" class="w-100">
                         <h2 class="fw-bolder text-center mb-2">
                             Acessar conta!
                         </h2>
 
                         <div class="mb-2">
-                            <label
-                                for="exampleInputEmail1"
-                                class="form-label fw-semibold"
+                            <label for="iptEmail" class="form-label fw-semibold"
                                 >Email:</label
                             >
                             <input
-                                id="exampleInputEmail1"
+                                id="iptEmail"
                                 type="email"
                                 class="form-control"
                                 placeholder="Seu email"
@@ -65,12 +63,12 @@
                         </div>
                         <div class="mb-2">
                             <label
-                                for="exampleInputPassword1"
+                                for="iptPassword"
                                 class="form-label fw-semibold"
                                 >Senha:</label
                             >
                             <input
-                                id="exampleInputPassword1"
+                                id="iptPassword"
                                 type="password"
                                 class="form-control"
                                 placeholder="Sua senha"
@@ -83,19 +81,21 @@
                         </div>
                         <div class="mb-3 form-check">
                             <input
-                                id="exampleCheck1 "
+                                id="checkSession"
                                 type="checkbox"
                                 checked
                                 class="form-check-input pointer"
-                                id="exampleCheck1"
                             />
                             <label
                                 class="form-check-label fw-semibold"
-                                for="exampleCheck1 "
+                                for="checkSession"
                                 >Continue conectado.</label
                             >
                         </div>
-                        <button type="submit" class="btn btn-primary col-12">
+                        <button
+                            type="submit"
+                            class="btn btn-primary col-12 fw-bolder"
+                        >
                             Entrar
                         </button>
                         <p class="mt-3 text-center fw-semibold">
@@ -106,10 +106,71 @@
                                 >Cadastre-se!</a
                             >
                         </p>
+                        <div
+                            id="validationNotEmailModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Email ou senha incorreto(a)!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="validationNotPasswordModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Email ou senha incorreto(a)!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="enterAppModal" class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">
+                                            NoteSoftware - App de anotações!
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Entrando no aplicativo!
+                                        </p>
+                                        <div
+                                            class="spinner-border text-primary"
+                                            role="status"
+                                        >
+                                            <span class="visually-hidden"
+                                                >Loading...</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../js/login.js"></script>
     </body>
 </html>

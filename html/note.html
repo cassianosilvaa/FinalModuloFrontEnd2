@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="../css/login-createAccount.css" />
+        <title>NoteSoftware - v2.0</title>
+    </head>
+    <body>
+        <main>
+            <header
+                class="container-fluid mt-2 d-flex justify-content-center align-items-center bg-white bg-opacity-75 border border-3 rounded-4 shadow-lg"
+            >
+                <div class="row w-100 text-center">
+                    <div class="col-12 m-3">
+                        <h1>Meus recados!</h1>
+                    </div>
+                </div>
+                <div class="col">
+                    <svg
+                        id="btnLog"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-box-arrow-right pointer me-4"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                        />
+                    </svg>
+                    <div id="logoutModal" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Saindo!</h4>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p class="fw-bolder">
+                                        Redirecionando para a tela de login!
+                                    </p>
+                                    <div
+                                        class="spinner-border text-primary"
+                                        role="status"
+                                    >
+                                        <span class="visually-hidden"
+                                            >Loading...</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section
+                class="container mt-2 w-100 d-flex justify-content-center bg-white bg-opacity-75 border border-3 rounded-4 shadow-lg"
+            >
+                <form
+                    id="recados"
+                    class="row d-flex justify-content-center w-100 text-center"
+                >
+                    <div class="col-12 col-md-3 m-3">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="iptText"
+                            placeholder="Descrição"
+                        />
+                    </div>
+                    <div class="col-12 col-md-5 m-3">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="iptDetail"
+                            placeholder="Detalhamento"
+                        />
+                    </div>
+                    <div class="col">
+                        <input
+                            type="submit"
+                            class="btn btn-primary m-3 w-75"
+                            value="Salvar"
+                        />
+                    </div>
+                    <div id="validationFields" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Erro!</h4>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p class="fw-bolder">Preencha os campos!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section
+                class="container-fluid mt-2 w-100 d-flex justify-content-center bg-white bg-opacity-75 border border-3 rounded-4 shadow-lg"
+            >
+                <table class="table table-hover text-break">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Detalhamento</th>
+                            <th scope="col">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody
+                        class="table-group-divider text-center"
+                        id="forms"
+                    ></tbody>
+                    <div id="successNote" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Salvo!</h4>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p class="fw-bolder">
+                                        Recado salvo com sucesso!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+                <div id="notUser" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Erro!</h4>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p class="fw-bolder">Usuário não encontrado!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="successRemoveNote" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Removido!</h4>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p class="fw-bolder">
+                                    Recado removido com sucesso!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="successEditNote" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Editado!</h4>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p class="fw-bolder">
+                                    Recado editado com sucesso!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../js/note.js"></script>
+    </body>
+</html>

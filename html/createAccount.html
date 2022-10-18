@@ -43,30 +43,30 @@
                 <div
                     class="col-12 col-md-6 d-flex justify-content-center align-items-center"
                 >
-                    <form class="w-100">
+                    <form id="createAccount" class="w-100">
                         <h2 class="fw-bolder text-center mb-3">Criar conta!</h2>
                         <div class="mb-2">
                             <label
-                                for="exampleInputEmail1"
+                                for="ipt-create-Email"
                                 class="form-label fw-semibold"
                                 >Email:</label
                             >
                             <input
-                                id="exampleInputEmail1"
+                                id="ipt-create-Email"
                                 type="email"
                                 class="form-control mb-3"
-                                placeholder="Seu email"
+                                placeholder="Exemplo@gmail.com"
                                 required
                             />
                         </div>
                         <div class="mb-2">
                             <label
-                                for="exampleInputPassword1"
+                                for="ipt-create-password"
                                 class="form-label fw-semibold"
                                 >Senha:</label
                             >
                             <input
-                                id="exampleInputPassword1"
+                                id="ipt-create-password"
                                 type="password"
                                 class="form-control mb-3"
                                 placeholder="Sua senha"
@@ -74,12 +74,12 @@
                                 required
                             />
                             <label
-                                for="exampleInputPassword1"
+                                for="ipt-confirm-password"
                                 class="form-label fw-semibold"
                                 >Confirme sua senha:</label
                             >
                             <input
-                                id="exampleInputPassword1"
+                                id="ipt-confirm-password"
                                 type="password"
                                 class="form-control"
                                 placeholder="Novamente a sua senha"
@@ -90,8 +90,11 @@
                                 Não compartilhe sua senha com ninguém!
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary col-12">
-                            Entrar
+                        <button
+                            type="submit"
+                            class="btn btn-primary col-12 fw-bolder"
+                        >
+                            Registrar
                         </button>
                         <p class="mt-3 text-center fw-semibold">
                             Voltar para a
@@ -99,12 +102,109 @@
                                 >página inicial!</a
                             >
                         </p>
+                        <div id="loadingModal" class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">
+                                            Conta criada com sucesso!
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Redirecionando para a tela de login!
+                                        </p>
+                                        <div
+                                            class="spinner-border text-primary"
+                                            role="status"
+                                        >
+                                            <span class="visually-hidden"
+                                                >Loading...</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="validationEmailModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            O Email precisa ter no mínimo 5
+                                            caracteres.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="validationPasswordModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            A senha precisa ter no mínimo 8
+                                            caracteres.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="validationConfirmPasswordModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Senhas não correspondem.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="validationEmailUsedModal"
+                            class="modal"
+                            tabindex="-1"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Erro!</h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p class="fw-bolder">
+                                            Email já em uso!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </main>
-        <footer class="cont"></footer>
-
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../js/createAccount.js"></script>
     </body>
 </html>
