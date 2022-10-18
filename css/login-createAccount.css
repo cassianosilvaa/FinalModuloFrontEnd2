@@ -17,3 +17,19 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+.slide-down {
+    position: relative;
+    bottom: 0px;
+    animation: sliding-down 2s ease-in-out forwards;
+}
+@keyframes sliding-down {
+    0% {
+        bottom: 500px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}

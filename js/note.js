@@ -1,9 +1,13 @@
 const formNotes = document.querySelector("#recados");
 const tableNote = document.querySelector("#forms");
 
-// const iptEditDsc = document.getElementById("iptEditDsc");
-// const iptEditDtl = document.getElementById("iptEditDtl");
 const btnLogout = document.getElementById("btnLog");
+
+const welcome = new bootstrap.Modal("#welcome");
+welcome.show();
+setTimeout(() => {
+    welcome.hide();
+}, 5000);
 
 const attLocal = (userData) => {
     localStorage.setItem(userData.login, JSON.stringify(userData));
@@ -42,13 +46,14 @@ function saveNote(event) {
             description: iptDsc,
             detail: iptDetail,
         };
-        userData.onlyNoteUser.push(objNote);
-        saveUser();
-        createTable();
+
         const successNote = new bootstrap.Modal("#successNote");
         successNote.show();
         setTimeout(() => {
             successNote.hide();
+            userData.onlyNoteUser.push(objNote);
+            saveUser();
+            createTable();
         }, 1000);
         event.target.reset();
     }
@@ -208,8 +213,15 @@ function checkLoggedNote() {
         notUser.show();
         setTimeout(() => {
             notUser.hide();
-            window.location.href = "createAccount.html";
-        }, 3000);
+            const sendUserCreateAccount = new bootstrap.Modal(
+                "#sendUserCreateAccount"
+            );
+            sendUserCreateAccount.show();
+            setTimeout(() => {
+                sendUserCreateAccount.hide();
+                window.location.href = "createAccount.html";
+            }, 3000);
+        }, 2000);
     }
 }
 
@@ -235,25 +247,36 @@ function deleteRowTable(id) {
 }
 
 function editNotesTable(id) {
-    const editDtl = document.querySelector(`#iptEditDtl${id}`);
-    const editDsc = document.querySelector(`#iptEditDsc${id}`);
+    const editDsc = document.querySelector(`#iptEditDsc${id}`).value;
+    const editDtl = document.querySelector(`#iptEditDtl${id}`).value;
 
-    const editNotes = userData.onlyNoteUser.findIndex(
-        (recado) => recado.id === id
-    );
+    if (editDsc == null || editDsc == "") {
+        const validationFields = new bootstrap.Modal("#validationFields");
+        validationFields.show();
+        setTimeout(() => {
+            validationFields.hide();
+        }, 1200);
+    } else if (editDtl == null || editDtl == "") {
+        const validationFields = new bootstrap.Modal("#validationFields");
+        validationFields.show();
+        setTimeout(() => {
+            validationFields.hide();
+        }, 1200);
+    } else {
+        const editNotes = userData.onlyNoteUser.findIndex(
+            (recado) => recado.id === id
+        );
+        userData.onlyNoteUser[editNotes].description = editDsc;
+        userData.onlyNoteUser[editNotes].detail = editDtl;
 
-    userData.onlyNoteUser[editNotes].description = editDsc.value;
-    userData.onlyNoteUser[editNotes].detail = editDtl.value;
-
-    
-
-    const successEditNote = new bootstrap.Modal("#successEditNote");
-    successEditNote.show();
-    setTimeout(() => {
-        successEditNote.hide();
-        attLocal(userData);
-        createTable();
-    }, 1000);
+        const successEditNote = new bootstrap.Modal("#successEditNote");
+        successEditNote.show();
+        setTimeout(() => {
+            successEditNote.hide();
+            attLocal(userData);
+            createTable();
+        }, 1000);
+    }
 }
 
 function logout() {
