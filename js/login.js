@@ -59,6 +59,7 @@ function checkLogged() {
 function getAccount(key) {
     const account = localStorage.getItem(key);
     ////////////////// se tiver conta vai pegar, senão vai retornar vazio
+    
     if (account) {
         return JSON.parse(account);
     }
