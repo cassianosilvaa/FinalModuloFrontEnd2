@@ -4,6 +4,7 @@ const tableNote = document.querySelector("#forms");
 const btnLogout = document.getElementById("btnLog");
 
 const welcome = new bootstrap.Modal("#welcome");
+
 welcome.show();
 setTimeout(() => {
     welcome.hide();
@@ -16,8 +17,12 @@ const attLocal = (userData) => {
 let userData;
 recuperaLocal();
 
-formNotes.addEventListener("submit", saveNote);
-btnLogout.addEventListener("click", logout);
+if (formNotes) {
+    formNotes.addEventListener("submit", saveNote);
+}
+if (btnLogout) {
+    btnLogout.addEventListener("click", logout);
+}
 
 function saveNote(event) {
     event.preventDefault();
@@ -58,6 +63,8 @@ function saveNote(event) {
         event.target.reset();
     }
 }
+
+
 function recuperaLocal() {
     const checkSession = sessionStorage.getItem("logged");
     const checkSession2 = localStorage.getItem("logged");
@@ -70,6 +77,8 @@ function recuperaLocal() {
         userData = JSON.parse(localStorage.getItem(checkSession));
     }
 }
+
+//criando tabela e modal para excluir e editar
 function createTable() {
     tableNote.innerHTML = "";
     let idCount = 1;
@@ -201,9 +210,6 @@ function createTable() {
         idCount++;
     }
 }
-
-/* <input type="button" class="btn btn-danger" value="Excluir" onclick="deleteRowTable(${note.id})"> 
-    <input type="button" class="btn btn-secondary" value="Editar" onclick="editNotesTable(${note.id})"> */
 
 checkLoggedNote();
 

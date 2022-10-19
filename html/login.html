@@ -9,14 +9,19 @@
             href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <link rel="stylesheet" href="../css/login-createAccount.css" />
+        <link
+            rel="shortcut icon"
+            href="../assets/favicon/dev.ico"
+            type="image/x-icon"
+        />
         <title>NoteSoftware - v2.0</title>
     </head>
     <body class="vh-100 d-flex align-items-center">
-        <div
+        <main
             class="container h-75 w-75 d-flex justify-content-center bg-white bg-opacity-75 border border-3 rounded-4 shadow-lg"
         >
             <div class="row">
-                <div
+                <section
                     class="col-12 col-md-6 d-flex justify-content-center align-items-center slide-down"
                 >
                     <div class="container">
@@ -39,9 +44,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--  -->
-                <div
+                </section>
+                <section
                     class="col-12 col-md-6 d-flex justify-content-center align-items-center slide-up"
                 >
                     <form id="loginForm" class="w-100">
@@ -106,6 +110,7 @@
                                 >Cadastre-se!</a
                             >
                         </p>
+                        <!-- modais -->
                         <div
                             id="validationNotEmailModal"
                             class="modal"
@@ -167,9 +172,9 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </section>
             </div>
-        </div>
+        </main>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../js/login.js"></script>
     </body>

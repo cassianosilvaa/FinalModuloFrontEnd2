@@ -16,6 +16,8 @@ document
             "ipt-confirm-password"
         ).value;
 
+            //validações usando modal
+
         if (iptEmail.length < 5) {
             const validationEmailModal = new bootstrap.Modal(
                 "#validationEmailModal"
