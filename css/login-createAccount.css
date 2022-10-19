@@ -23,6 +23,7 @@ body {
     bottom: 0px;
     animation: sliding-down 2s ease-in-out forwards;
 }
+
 @keyframes sliding-down {
     0% {
         bottom: 500px;
